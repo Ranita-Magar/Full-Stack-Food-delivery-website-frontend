@@ -20,9 +20,24 @@ const StoreContextProvider = (props) => {
     setCartItems((prev) => ({ ...prev, [ItemId]: prev[ItemId] - 1 }));
   }; //decrease value by 1
 
-  useEffect(() => {
-    console.log(cartItems);
-  }, [cartItems]);
+  //   useEffect(() => {
+  //     console.log(cartItems);
+  //   }, [cartItems]);
+
+  const getTotalCartAmount = () => {
+    let TotalAmount = 0;
+    for (const item in cartItems) {
+      {
+        /*  for in loop is used because cartItems is an object and this loop iterate over that object and it  will provide item one by one & this item will be the key value of the cartItems */
+      }
+
+      if (cartItems[item] > 0) {
+        let itemInfo = food_list.find((product) => product._id === item);
+        TotalAmount += itemInfo.price * cartItems[item];
+      }
+    }
+    return TotalAmount;
+  };
 
   const contextValue = {
     food_list,
@@ -30,6 +45,7 @@ const StoreContextProvider = (props) => {
     setCartItems,
     addToCart,
     removeFromCart,
+    getTotalCartAmount
   };
   return (
     <StoreContext.Provider value={contextValue}>
