@@ -3,7 +3,7 @@ import "./Navbar.css";
 import { assets } from "../../assets/assets";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({setShowLogin}) => {
   const [menu, setMenu] = useState("Menu");
   return (
     <div className="navbar">
@@ -45,7 +45,7 @@ const Navbar = () => {
           <div className="dot"></div>{" "}
           {/*when we add item in cart dot will be visible otherwise dot will be hidden*/}
         </div>
-        <button>Sign In</button>
+        <button onClick={() => setShowLogin(true)}>Sign In</button>
       </div>
     </div>
   );
