@@ -38,7 +38,8 @@ const LoginPopup = ({ setShowLogin }) => {
     } else {
       alert(response.data.message);
     }
-  };
+
+  }
 
   //to check if handling function is working or not
   // useEffect(() => {
