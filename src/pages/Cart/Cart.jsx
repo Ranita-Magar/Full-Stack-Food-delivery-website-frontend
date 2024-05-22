@@ -33,9 +33,9 @@ const Cart = () => {
                 <div className="cart-items-title cart-items-item">
                   {/* <p>{item.name} </p> */}{" "}
                   {/*to check by adding any item in home page will it display in cart page or not*/}
-                  <img src={url+"/images/"+item.image} alt="" />
+                  <img src={url + "/images/" + item.image} alt="" />
                   <p>{item.name}</p>
-                  <p>${item.price}</p> 
+                  <p>${item.price}</p>
                   <p>{cartItems[item._id]}</p>
                   <p>${item.price * cartItems[item._id]}</p>
                   <p
@@ -66,18 +66,22 @@ const Cart = () => {
 
             <div className="cart-total-details">
               <p>Delivery Fee</p>
-              <p>${2} </p>
+              <p>${getTotalCartAmount() === 0 ? 0 : 2} </p>
             </div>
             <hr />
 
             <div className="cart-total-details">
               <b>Total</b>
               {/* <b>{0}</b> */}
-              <b>${getTotalCartAmount() + 2} </b>
+              <b>
+                ${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}{" "}
+              </b>
             </div>
           </div>
 
-          <button onClick={() => navigate('/order')}>PROCEED TO CHECKOUT</button>
+          <button onClick={() => navigate("/order")}>
+            PROCEED TO CHECKOUT
+          </button>
         </div>
 
         <div className="cart-promocode">
